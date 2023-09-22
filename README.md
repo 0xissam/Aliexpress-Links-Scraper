@@ -27,14 +27,6 @@ Follow these steps to install the extension:
 4. Once completed, you will receive a success message indicating the number of links copied to your clipboard.
 
 
-## Acknowledgments
-
-- Special thanks to [0xissam](https://github.com/0xissam) for the initial code inspiration.
-
 ## Disclaimer
 
 This extension is provided as-is and is not affiliated with Aliexpress or its parent company. Use it responsibly and respect the website's terms of service.
-
----
-
-**Disclaimer**: This Chrome extension is not affiliated with or endorsed by Aliexpress. Use it responsibly and in compliance with Aliexpress's terms of service.

@@ -1,6 +1,6 @@
 # Aliexpress Links Scraper Chrome Extension
 
-![Extension Logo](images/icon.png)
+![Extension Logo](https://github.com/0xissam/Aliexpress-Links-Scraper/blob/main/Aliexpress%20Links%20Scraper/images/icon.png)
 
 **Aliexpress Links Scraper** is a Chrome extension that allows you to easily scrape and copy products links from aliexpress web pages. Developed by [0xissam].
 

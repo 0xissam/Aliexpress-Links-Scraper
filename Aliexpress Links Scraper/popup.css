@@ -1,0 +1,118 @@
+/* popup.css */
+body {
+    width: 300px;
+}
+
+/* Reset some default browser styles */
+body, h1, p, form, button {
+    margin: 0;
+    padding: 0;
+}
+
+/* Set a background color for the body */
+body {
+    background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
+}
+
+/* Style the header */
+h1 {
+    text-align: center;
+    background-color: #007BFF;
+    color: #fff;
+    padding: 6px;
+    margin-bottom: 10px;
+}
+
+/* Style the span within the header */
+h1 span {
+    font-weight: bold;
+}
+
+/* Style the paragraph */
+p {
+    text-align: center;
+    font-style: italic;
+    color: #555;
+}
+
+/* Style the form container */
+.mydiv {
+    text-align: center;
+    margin: 5px;
+}
+
+/* Style the radio buttons and labels */
+input[type="radio"] {
+    margin: 8px;
+    /* border: solid -8px; */
+}
+
+label {
+    font-size: 20px;
+    color: #333;
+    /* border: solid 2px #007BFF; */
+    /* border-radius: 9px; */
+    /* padding: 1px; */
+    /* font-size: 23px; */
+}
+
+/* Style the button */
+#executeButton {
+    display: block;
+    margin: 0 auto;
+    padding: 10px 81px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+
+/* Add a hover effect to the button */
+#executeButton:hover {
+    background-color: #0056b3;
+}
+
+/* Style the default button */
+#executeButton {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    padding: 10px 81px;
+    background-color: #007BFF; /* Default background color */
+    color: #fff; /* Default text color */
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 8px;
+    transition: background-color 0.3s, color 0.3s; /* Add transition effect */
+}
+
+/* Style the button on hover */
+#executeButton:hover {
+    background-color: #0056b3;
+}
+
+/* Style the button when active (clicked) */
+#executeButton:active {
+    background-color: #fff; /* Background color when active */
+    color: #007BFF; /* Text color when active */
+    border: 1px solid #007BFF; /* Add border when active */
+}
+
+/* adding the border to label and radio button */
+
+.bord {
+    display: inline-block;
+    border: #007BFF 3px solid;
+    border-radius: 50px;
+    margin: 5px;
+    width: 75px;
+
+}
+
+label {
+    padding-left: 5px;
+}

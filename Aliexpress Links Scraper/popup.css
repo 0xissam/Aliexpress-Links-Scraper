@@ -106,7 +106,7 @@ label {
 
 .bord {
     display: inline-block;
-    border: #007BFF 3px solid;
+    border: #007BFF 1px solid;
     border-radius: 50px;
     margin: 5px;
     width: 75px;

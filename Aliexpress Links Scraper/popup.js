@@ -50,8 +50,8 @@ function getme(maxItemsToCopy) {
         }
 
         const href = anchorElement.getAttribute('href');
-        if (href && href.includes('/item/') && !modifiedHrefValues.has(`https:${href}`)) {
-          modifiedHrefValues.add(`https:${href}`);
+        if (href && href.includes('/item/') && !modifiedHrefValues.has(href)) {
+          modifiedHrefValues.add(href);
           itemsCopied++; // Increment the counter for copied items
         }
       });

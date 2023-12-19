@@ -13,7 +13,7 @@
 
 Follow these steps to install the extension:
 
-1. Download the extension ZIP file from the [Releases](https://github.com/your-repo/aliexpress-links-scraper/releases) page.
+1. Download the extension ZIP file.
 2. Extract the ZIP file to a directory of your choice.
 3. Open Google Chrome and go to `chrome://extensions/`.
 4. Enable the "Developer mode" toggle in the upper right corner.

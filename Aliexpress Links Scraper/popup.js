@@ -49,8 +49,13 @@ function getme(maxItemsToCopy) {
           return; // Stop processing when we've copied enough items
         }
 
-        const href = anchorElement.getAttribute('href');
+        let href = anchorElement.getAttribute('href');
         if (href && href.includes('/item/') && !modifiedHrefValues.has(href)) {
+          // Add https: to the href if it's not already included
+          if (!href.startsWith('http')) {
+            href = 'https:' + href;
+          }
+
           modifiedHrefValues.add(href);
           itemsCopied++; // Increment the counter for copied items
         }

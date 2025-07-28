@@ -4,26 +4,23 @@ document.addEventListener('DOMContentLoaded', function () {
 
   scraperButton.addEventListener('click', async () => {
     try {
-      let [tab] = await chrome.tabs.query({active: true, currentWindow: true});
+      let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
 
       // Get the selected radio button value
       const selectedRadio = document.querySelector('input[name="check"]:checked');
 
       if (!selectedRadio) {
-        // Handle the case where no radio button is selected
         alert("Please select a number of links to copy");
         return;
       }
 
       const selectedValue = selectedRadio.value;
-
-      // Convert the selected value to a number and set it as maxItemsToCopy
       const maxItemsToCopy = parseInt(selectedValue, 10);
 
       chrome.scripting.executeScript({
         target: { tabId: tab.id },
         function: getme,
-        args: [maxItemsToCopy], // Pass the maxItemsToCopy value as an argument
+        args: [maxItemsToCopy],
       });
     } catch (error) {
       alert(`An error occurred: ${error.message}`);
@@ -34,35 +31,37 @@ document.addEventListener('DOMContentLoaded', function () {
 function getme(maxItemsToCopy) {
   try {
     const divElements = document.querySelectorAll('div');
-    const modifiedHrefValues = new Set(); // Use a Set to store unique hrefs
-
-    var itemsCopied = 0; // Initialize a counter for copied items
+    const modifiedHrefValues = new Set();
+    let itemsCopied = 0;
 
     divElements.forEach((divElement) => {
-      if (itemsCopied >= maxItemsToCopy) {
-        return; // Stop processing when we've copied enough items
-      }
+      if (itemsCopied >= maxItemsToCopy) return;
 
       const anchorElements = divElement.querySelectorAll('a');
       anchorElements.forEach((anchorElement) => {
-        if (itemsCopied >= maxItemsToCopy) {
-          return; // Stop processing when we've copied enough items
-        }
+        if (itemsCopied >= maxItemsToCopy) return;
 
         let href = anchorElement.getAttribute('href');
-        if (href && href.includes('/item/') && !modifiedHrefValues.has(href)) {
-          // Add https: to the href if it's not already included
-          if (!href.startsWith('http')) {
+        if (href && href.includes('/item/') && href.includes('.html')) {
+          // Add https: if it starts with '//'
+          if (href.startsWith('//')) {
             href = 'https:' + href;
+          } else if (!href.startsWith('http')) {
+            href = 'https://' + location.host + href;
           }
 
-          modifiedHrefValues.add(href);
-          itemsCopied++; // Increment the counter for copied items
+          // Trim everything after ".html"
+          href = href.split('.html')[0] + '.html';
+
+          if (!modifiedHrefValues.has(href)) {
+            modifiedHrefValues.add(href);
+            itemsCopied++;
+          }
         }
       });
     });
 
-    const modifiedHrefArray = Array.from(modifiedHrefValues); // Convert Set to array
+    const modifiedHrefArray = Array.from(modifiedHrefValues);
     const modifiedHrefString = modifiedHrefArray.join('\n');
 
     const textarea = document.createElement('textarea');
@@ -72,7 +71,7 @@ function getme(maxItemsToCopy) {
     document.execCommand('copy');
     document.body.removeChild(textarea);
 
-    alert(`Successfully copied ${itemsCopied} links.`);
+    alert(`Successfully copied ${itemsCopied} clean links.`);
   } catch (error) {
     alert(`An error occurred: ${error.message}`);
   }
